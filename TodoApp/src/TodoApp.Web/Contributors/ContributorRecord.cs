@@ -1,0 +1,3 @@
+﻿namespace TodoApp.Web.Contributors;
+
+public record ContributorRecord(int Id, string Name, string? PhoneNumber);

@@ -1,0 +1,64 @@
+2024-08-20 14:27:07.584 +07:00 [INF] Registered 5 endpoints in 1.865 milliseconds.
+2024-08-20 14:27:08.564 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA journal_mode = 'wal';
+2024-08-20 14:27:08.616 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Contributors" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_Contributors" PRIMARY KEY AUTOINCREMENT,
+    "Name" TEXT NOT NULL,
+    "Status" INTEGER NOT NULL,
+    "PhoneNumber_CountryCode" TEXT NULL,
+    "PhoneNumber_Number" TEXT NULL,
+    "PhoneNumber_Extension" TEXT NULL
+);
+2024-08-20 14:27:08.719 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Contributors" AS "c")
+2024-08-20 14:27:08.806 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 7), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Contributors" ("Name", "Status")
+VALUES (@p0, @p1)
+RETURNING "Id";
+2024-08-20 14:27:08.818 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 8), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Contributors" ("Name", "Status")
+VALUES (@p0, @p1)
+RETURNING "Id";
+2024-08-20 14:27:08.887 +07:00 [INF] Now listening on: https://localhost:57679
+2024-08-20 14:27:08.888 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-20 14:27:08.889 +07:00 [INF] Hosting environment: Development
+2024-08-20 14:27:08.889 +07:00 [INF] Content root path: C:\Users\verio\documents\learning\todoapp\todoapp\src\todoapp.web
+2024-08-20 14:27:16.982 +07:00 [INF] Request starting HTTP/2 GET https://localhost:57679/ - null null
+2024-08-20 14:27:17.012 +07:00 [INF] Request finished HTTP/2 GET https://localhost:57679/ - 404 0 null 31.2977ms
+2024-08-20 14:27:17.025 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:57679/, Response status code: 404
+2024-08-20 14:27:22.741 +07:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger - null null
+2024-08-20 14:27:22.747 +07:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger - 302 0 null 5.194ms
+2024-08-20 14:27:22.751 +07:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.html - null null
+2024-08-20 14:27:22.847 +07:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.html - 200 null text/html; charset=utf-8 96.5539ms
+2024-08-20 14:27:22.885 +07:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css - null null
+2024-08-20 14:27:22.887 +07:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/index.css - null null
+2024-08-20 14:27:22.888 +07:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui-bundle.js - null null
+2024-08-20 14:27:22.888 +07:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/swagger-ui-standalone-preset.js - null null
+2024-08-20 14:27:22.894 +07:00 [INF] Sending file. Request path: '/index.css'. Physical path: 'N/A'
+2024-08-20 14:27:22.896 +07:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/index.css - 200 218 text/css 8.711ms
+2024-08-20 14:27:22.904 +07:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-08-20 14:27:22.905 +07:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-08-20 14:27:22.908 +07:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui-standalone-preset.js - 200 230294 text/javascript 19.0435ms
+2024-08-20 14:27:22.908 +07:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui.css - 200 152073 text/css 22.9083ms
+2024-08-20 14:27:22.920 +07:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-08-20 14:27:22.921 +07:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/swagger-ui-bundle.js - 200 1452754 text/javascript 33.5643ms
+2024-08-20 14:27:23.381 +07:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - null null
+2024-08-20 14:27:23.402 +07:00 [INF] Request starting HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - null null
+2024-08-20 14:27:23.405 +07:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-08-20 14:27:23.413 +07:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/favicon-32x32.png - 200 628 image/png 11.3069ms
+2024-08-20 14:27:23.431 +07:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2024-08-20 14:27:23.969 +07:00 [INF] Request finished HTTP/2 GET https://localhost:57679/swagger/v1/swagger.json - 200 null application/json; charset=utf-8 587.0456ms
+2024-08-20 14:32:21.778 +07:00 [INF] Request starting HTTP/2 GET https://localhost:57679/Contributors - null null
+2024-08-20 14:32:21.783 +07:00 [INF] Executing endpoint 'HTTP: GET /Contributors'
+2024-08-20 14:32:21.824 +07:00 [INF] Handling ListContributorsQuery
+2024-08-20 14:32:21.825 +07:00 [INF] Property Skip : null
+2024-08-20 14:32:21.826 +07:00 [INF] Property Take : null
+2024-08-20 14:32:21.902 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT Id, Name, PhoneNumber_Number AS PhoneNumber FROM Contributors
+2024-08-20 14:32:21.907 +07:00 [INF] Handled ListContributorsQuery with Ardalis.Result.Result`1[System.Collections.Generic.IEnumerable`1[TodoApp.UseCases.Contributors.ContributorDTO]] in 80 ms
+2024-08-20 14:32:21.932 +07:00 [INF] Executed endpoint 'HTTP: GET /Contributors'
+2024-08-20 14:32:21.936 +07:00 [INF] Request finished HTTP/2 GET https://localhost:57679/Contributors - 200 null application/json 157.5275ms
+2024-08-20 14:46:15.212 +07:00 [INF] Application is shutting down...
