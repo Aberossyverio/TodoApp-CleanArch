@@ -12,6 +12,9 @@ using FastEndpoints.Swagger;
 using MediatR;
 using Serilog;
 using Serilog.Extensions.Logging;
+using TodoApp.UseCases.TodoItem.Interfaces;
+using TodoApp.Core.TodoItem.Repositories;
+using TodoApp.Infrastructure.TodoItem;
 
 var logger = Log.Logger = new LoggerConfiguration()
   .Enrich.FromLogContext()
@@ -58,7 +61,17 @@ else
   builder.Services.AddScoped<IEmailSender, MimeKitEmailSender>();
 }
 
+builder.Services.AddScoped<ITodoItemRepository, TodoItemRepository>();
+
 var app = builder.Build();
+
+app.Use(async (context, next) =>
+{
+  var logger = app.Services.GetRequiredService<ILogger<Program>>();
+  logger.LogInformation("Handling Request: " + context.Request.Path);
+  await next.Invoke();
+  logger.LogInformation("Finish Handling Request");
+});
 
 if (app.Environment.IsDevelopment())
 {
