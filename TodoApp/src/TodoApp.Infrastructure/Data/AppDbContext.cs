@@ -2,18 +2,15 @@
 using Ardalis.SharedKernel;
 using TodoApp.Core.ContributorAggregate;
 using Microsoft.EntityFrameworkCore;
+using TodoApp.Core.TodoItem.Models;
 
 namespace TodoApp.Infrastructure.Data;
-public class AppDbContext : DbContext
+public class AppDbContext(DbContextOptions<AppDbContext> options,
+  IDomainEventDispatcher? dispatcher) : DbContext(options)
 {
-  private readonly IDomainEventDispatcher? _dispatcher;
+  private readonly IDomainEventDispatcher? _dispatcher = dispatcher;
 
-  public AppDbContext(DbContextOptions<AppDbContext> options,
-    IDomainEventDispatcher? dispatcher)
-      : base(options)
-  {
-    _dispatcher = dispatcher;
-  }
+  public DbSet<Todo> TodoItems { get; set; }
 
   public DbSet<Contributor> Contributors => Set<Contributor>();
 
