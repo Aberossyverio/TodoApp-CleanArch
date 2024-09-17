@@ -1,4 +1,4 @@
-namespace TodoApp.Core.TodoItem.Queries;
+namespace TodoApp.UseCases.TodoItem.Queries.GetAllTodoItems;
 
   public class GetAllTodoItemsQuery
   {
